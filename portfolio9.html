@@ -12,7 +12,6 @@
 }
 html, body { width:100%; height:100%; overflow:hidden; font-family:'Georgia',serif; color:var(--black); }
 
-/* ── FULL PAGE ── */
 #fp-container {
   width:100%; height:100vh;
   overflow-y:scroll; overflow-x:hidden;
@@ -26,7 +25,6 @@ html, body { width:100%; height:100%; overflow:hidden; font-family:'Georgia',ser
   position:relative; overflow:hidden;
 }
 
-/* ── NAV ── */
 nav {
   position:fixed; top:0; width:100%; z-index:200;
   padding:20px 48px;
@@ -34,64 +32,28 @@ nav {
   background:rgba(255,255,255,0); transition:background 0.4s;
 }
 nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); border-bottom:1px solid rgba(0,0,0,0.06); }
-.logo { font-size:17px; letter-spacing:3px; text-transform:uppercase; font-weight:normal; cursor:pointer; }
+.logo { font-size:17px; letter-spacing:3px; text-transform:uppercase; font-weight:normal; cursor:pointer; white-space:nowrap; }
 .nav-links { display:flex; gap:32px; list-style:none; }
-.nav-links a { text-decoration:none; color:var(--gray); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; transition:color .3s; }
+.nav-links a { text-decoration:none; color:var(--gray); font-size:12px; letter-spacing:1.5px; text-transform:uppercase; transition:color .3s; white-space:nowrap; }
 .nav-links a:hover { color:var(--black); }
 .nav-white .logo, .nav-white .nav-links a { color:rgba(255,255,255,0.85); }
 .nav-white .nav-links a:hover { color:#fff; }
 
-/* ── PORTFOLIO HEADER ── */
-.portfolio-header {
-  position:absolute; top:0; left:0; right:0;
-  padding:88px 60px 20px;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
-  z-index:10; pointer-events:none;
-}
-.portfolio-header.light {
-  background:linear-gradient(to bottom, rgba(245,243,240,0.95), rgba(245,243,240,0));
-}
-.port-label {
-  font-size:11px; letter-spacing:4px; text-transform:uppercase;
-  color:rgba(255,255,255,0.6);
-}
-.port-label.dark { color:var(--gray); }
-
-/* ── LIGHT PANELS (개인 프로젝트) ── */
-.light-panels { background:var(--light); }
-.light-panels .panel-bg { filter:brightness(0.08); background-color:#e8e4de !important; }
-.light-panels .panel:hover .panel-bg { filter:brightness(0.15); }
-.light-panels .panel { border-bottom:1px solid rgba(0,0,0,0.08); }
-.light-panels .panel-num { color:rgba(0,0,0,0.25); }
-.light-panels .panel-title { color:var(--black); }
-.light-panels .panel:hover .panel-title { color:var(--accent); }
-.light-panels .panel-cat { color:rgba(0,0,0,0.35); }
-.light-panels .panel:hover .panel-cat { color:var(--gray); }
-.light-panels .panel-arrow { color:rgba(0,0,0,0); }
-.light-panels .panel:hover .panel-arrow { color:var(--accent); }
-.light-panels .panel-divider { background:rgba(0,0,0,0.07); }
-.light-panels .panel-bg { background-color:#dedad4 !important; }
 #dots {
   position:fixed; right:28px; top:50%; transform:translateY(-50%);
   display:flex; flex-direction:column; gap:10px; z-index:200;
 }
-.dot {
-  width:7px; height:7px; border-radius:50%;
-  background:rgba(0,0,0,0.2); border:1px solid rgba(0,0,0,0.3);
-  cursor:pointer; transition:all .3s;
-}
+.dot { width:7px; height:7px; border-radius:50%; background:rgba(0,0,0,0.2); border:1px solid rgba(0,0,0,0.3); cursor:pointer; transition:all .3s; }
 .dot.active { background:var(--accent); border-color:var(--accent); transform:scale(1.3); }
 .dots-white .dot { background:rgba(255,255,255,0.3); border-color:rgba(255,255,255,0.5); }
 .dots-white .dot.active { background:var(--accent); border-color:var(--accent); }
 
-/* ── SECTION 1: HERO ── */
 #s-hero { background:var(--light); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .hero-sub { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); margin-bottom:20px; }
-.hero-name { font-size:clamp(56px,9vw,104px); font-weight:normal; letter-spacing:-1px; line-height:1; }
+.hero-name { font-size:clamp(40px,8vw,96px); font-weight:normal; letter-spacing:-1px; line-height:1; }
 .hero-title { font-size:13px; color:var(--gray); letter-spacing:3px; text-transform:uppercase; margin-top:18px; }
 .hero-line { width:1px; height:52px; background:var(--accent); margin:44px auto 0; }
 
-/* ── SECTION 2: ABOUT ── */
 #s-about { background:var(--white); display:flex; align-items:center; padding:0 10vw; }
 .about-inner { max-width:720px; }
 .sec-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
@@ -100,45 +62,40 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
 .about-stats { display:flex; gap:52px; margin-top:48px; }
 .stat-num { font-size:34px; } .stat-label { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-top:4px; }
 
-/* ── SECTION 3: PORTFOLIO (hover panels) ── */
-#s-portfolio { background:var(--black); display:flex; flex-direction:column; }
+#s-portfolio, #s-personal { display:flex; flex-direction:column; }
+.portfolio-header { position:absolute; top:0; left:0; right:0; padding:88px 60px 20px; background:linear-gradient(to bottom, rgba(0,0,0,0.5), transparent); z-index:10; pointer-events:none; }
+.portfolio-header.light { background:linear-gradient(to bottom, rgba(245,243,240,0.95), rgba(245,243,240,0)); }
+.port-label { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.6); }
+.port-label.dark { color:var(--gray); }
+
 .panels { display:flex; flex-direction:column; width:100%; height:100%; }
-.panel {
-  flex:1; position:relative; overflow:hidden; cursor:pointer;
-  transition:flex .5s cubic-bezier(.4,0,.2,1);
-  display:flex; align-items:center;
-}
+.panel { flex:1; position:relative; overflow:hidden; cursor:pointer; transition:flex .5s cubic-bezier(.4,0,.2,1); display:flex; align-items:center; }
 .panels:hover .panel { flex:.6; }
 .panels .panel:hover { flex:2.6; }
-.panel-bg {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center;
-  filter:brightness(0.35);
-  transition:filter .5s, transform .5s;
-}
+.panel-bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:brightness(0.35); transition:filter .5s, transform .5s; }
 .panel:hover .panel-bg { filter:brightness(0.55); transform:scale(1.04); }
-.panel-content {
-  position:relative; z-index:2;
-  padding:0 60px; display:flex; align-items:center; gap:32px; width:100%;
-}
+.panel-content { position:relative; z-index:2; padding:0 60px; display:flex; align-items:center; gap:32px; width:100%; }
 .panel-num { font-size:11px; letter-spacing:3px; color:rgba(255,255,255,0.35); min-width:28px; }
 .panel-info { overflow:hidden; }
-.panel-title {
-  font-size:clamp(18px,2.2vw,28px); color:#fff; font-weight:normal;
-  letter-spacing:0.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  transition:color .3s;
-}
+.panel-title { font-size:clamp(16px,2.2vw,28px); color:#fff; font-weight:normal; letter-spacing:0.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:color .3s; }
 .panel:hover .panel-title { color:var(--accent); }
 .panel-cat { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-top:5px; transition:color .3s; }
 .panel:hover .panel-cat { color:rgba(255,255,255,0.6); }
-.panel-arrow {
-  margin-left:auto; color:rgba(255,255,255,0); font-size:20px;
-  transition:color .4s, transform .3s;
-}
+.panel-arrow { margin-left:auto; color:rgba(255,255,255,0); font-size:20px; transition:color .4s, transform .3s; }
 .panel:hover .panel-arrow { color:var(--accent); transform:translateX(6px); }
 .panel-divider { position:absolute; bottom:0; left:60px; right:60px; height:1px; background:rgba(255,255,255,0.07); }
 
-/* ── SECTION 4: CONTACT ── */
+.light-panels { background:var(--light); }
+.light-panels .panel-bg { filter:brightness(0.08); background-color:#dedad4 !important; }
+.light-panels .panel:hover .panel-bg { filter:brightness(0.15); }
+.light-panels .panel-title { color:var(--black); }
+.light-panels .panel:hover .panel-title { color:var(--accent); }
+.light-panels .panel-cat { color:rgba(0,0,0,0.35); }
+.light-panels .panel-num { color:rgba(0,0,0,0.25); }
+.light-panels .panel-arrow { color:rgba(0,0,0,0); }
+.light-panels .panel:hover .panel-arrow { color:var(--accent); }
+.light-panels .panel-divider { background:rgba(0,0,0,0.07); }
+
 #s-contact { background:var(--black); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 #s-contact .sec-label { color:var(--accent); }
 #s-contact .sec-title { color:var(--white); }
@@ -150,51 +107,26 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
 .contact-links a:hover { color:#fff; }
 .copy { position:absolute; bottom:24px; font-size:10px; color:rgba(255,255,255,0.2); letter-spacing:2px; }
 
-/* ── DETAIL PAGE ── */
-#detail-page {
-  position:fixed; inset:0; z-index:300;
-  background:var(--white); overflow-y:auto;
-  transform:translateY(100%); transition:transform .5s cubic-bezier(.4,0,.2,1);
-}
+#detail-page { position:fixed; inset:0; z-index:300; background:var(--white); overflow-y:auto; transform:translateY(100%); transition:transform .5s cubic-bezier(.4,0,.2,1); }
 #detail-page.open { transform:translateY(0); }
-.detail-back {
-  position:fixed; top:20px; left:24px; z-index:350;
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:11px; letter-spacing:2px; text-transform:uppercase;
-  color:#fff; cursor:pointer;
-  background:rgba(0,0,0,0.35); backdrop-filter:blur(4px);
-  padding:8px 16px; border:1px solid rgba(255,255,255,0.2); transition:opacity .3s;
-}
+.detail-back { position:fixed; top:20px; left:24px; z-index:350; display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#fff; cursor:pointer; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px); padding:8px 16px; border:1px solid rgba(255,255,255,0.2); transition:opacity .3s; }
 .detail-back:hover { opacity:.7; }
 .detail-back.dark { color:var(--black); background:rgba(255,255,255,0.85); border-color:rgba(0,0,0,0.1); }
 .detail-hero-wrap { position:relative; width:100%; height:100vh; overflow:hidden; }
 .detail-hero-wrap img { width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.05); }
-.detail-hero-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
-  display:flex; flex-direction:column; justify-content:flex-end; padding:60px;
-}
+.detail-hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)); display:flex; flex-direction:column; justify-content:flex-end; padding:60px; }
 .d-cat { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
 .d-title { font-size:clamp(28px,5vw,60px); font-weight:normal; color:#fff; }
-.scroll-hint {
-  position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
-  color:rgba(255,255,255,0.55); font-size:10px; letter-spacing:2px; text-transform:uppercase;
-  display:flex; flex-direction:column; align-items:center; gap:6px;
-  animation:sh 2s infinite;
-}
+.scroll-hint { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.55); font-size:10px; letter-spacing:2px; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:6px; animation:sh 2s infinite; }
 .scroll-hint::after { content:''; width:1px; height:36px; background:rgba(255,255,255,0.35); }
 @keyframes sh { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
 .space-section { padding:72px 60px 0; }
-.space-label {
-  display:inline-block; font-size:10px; letter-spacing:4px; text-transform:uppercase;
-  color:#fff; background:var(--accent); padding:6px 16px; margin-bottom:28px;
-}
+.space-label { display:inline-block; font-size:10px; letter-spacing:4px; text-transform:uppercase; color:#fff; background:var(--accent); padding:6px 16px; margin-bottom:28px; }
 .space-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(400px,1fr)); gap:14px; }
 .space-grid img { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; cursor:pointer; transition:transform .4s; }
 .space-grid img:hover { transform:scale(1.02); }
 .detail-pad { height:100px; }
 
-/* ── LIGHTBOX ── */
 .lightbox { display:none; position:fixed; inset:0; z-index:500; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; }
 .lightbox.open { display:flex; }
 .lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; }
@@ -207,11 +139,8 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
   nav { padding:14px 20px; }
   .logo { font-size:14px; letter-spacing:2px; }
   .nav-links { gap:14px; }
-  .nav-links a { font-size:10px; letter-spacing:1px; }
+  .nav-links a { font-size:10px; }
   .panel-content { padding:0 24px; gap:16px; }
-  .panel-title { font-size:clamp(14px,4vw,20px); }
-  .about-inner { padding:0 20px; }
-  #s-about { padding:0 6vw; }
   .space-section { padding:48px 20px 0; }
   .space-grid { grid-template-columns:1fr; }
   .detail-hero-overlay { padding:32px 24px; }
@@ -238,7 +167,6 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
 </div>
 
 <div id="fp-container">
-  <!-- HERO -->
   <section class="fp-section" id="s-hero">
     <p class="hero-sub">Interior Designer</p>
     <h1 class="hero-name">우리처럼,</h1>
@@ -246,7 +174,6 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
     <div class="hero-line"></div>
   </section>
 
-  <!-- ABOUT -->
   <section class="fp-section" id="s-about">
     <div class="about-inner">
       <p class="sec-label">About</p>
@@ -259,23 +186,16 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
     </div>
   </section>
 
-  <!-- PORTFOLIO - 회사 프로젝트 -->
   <section class="fp-section" id="s-portfolio">
-    <div class="portfolio-header">
-      <span class="port-label">Company Projects</span>
-    </div>
+    <div class="portfolio-header"><span class="port-label">Company Projects</span></div>
     <div class="panels" id="panels"></div>
   </section>
 
-  <!-- PORTFOLIO - 개인 프로젝트 -->
   <section class="fp-section" id="s-personal">
-    <div class="portfolio-header light">
-      <span class="port-label dark">Personal Projects</span>
-    </div>
+    <div class="portfolio-header light"><span class="port-label dark">Personal Projects</span></div>
     <div class="panels light-panels" id="personal-panels"></div>
   </section>
 
-  <!-- CONTACT -->
   <section class="fp-section" id="s-contact">
     <p class="sec-label">Contact</p>
     <h2 class="sec-title">함께 만들어요</h2>
@@ -288,10 +208,9 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
   </section>
 </div>
 
-<!-- DETAIL PAGE -->
 <div id="detail-page">
   <div class="detail-back" id="detail-back" onclick="closeDetail()"><span>←</span> Back</div>
-  <div class="detail-hero-wrap">
+  <div class="detail-hero-wrap" id="d-hero-wrap">
     <img id="d-hero-img" src="" alt="">
     <div class="detail-hero-overlay">
       <div class="d-cat" id="d-cat"></div>
@@ -303,7 +222,6 @@ nav.light-bg { background:rgba(255,255,255,0.93); backdrop-filter:blur(8px); bor
   <div class="detail-pad"></div>
 </div>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLb()">×</button>
   <button class="lb-prev" onclick="lbNav(-1)">‹</button>
@@ -330,12 +248,13 @@ const projects = [
     ]
   },
   {
-    name:"장성 PINE DC 인테리어", cat:"Office", thumb:"https://i.ibb.co/YBLpGCWx.jpg",
+    name:"장성 PINE DC 인테리어", cat:"Office",
+    thumb:"https://i.imgur.com/rh9ITg6.jpeg",
     spaces:[
-      {label:"1F Lobby", images:["https://i.ibb.co/YBLpGCWx.jpg","https://i.ibb.co/yJypGKG.jpg","https://i.ibb.co/Kz8RGLH9.jpg"]},
-      {label:"1F Seminar Room & Cafe", images:["https://i.ibb.co/fdS3pCjX.jpg","https://i.ibb.co/svyZ280q.jpg","https://i.ibb.co/JWtR8mts.jpg"]},
-      {label:"2F Control Center", images:["https://i.ibb.co/GQqCJmG4.jpg","https://i.ibb.co/2YKx7G5C.jpg"]},
-      {label:"2F Lounge & VIP Room", images:["https://i.ibb.co/QvXM99Wx.jpg","https://i.ibb.co/nNFrQTtK.jpg"]}
+      {label:"1F Lobby", images:["https://i.imgur.com/rh9ITg6.jpeg","https://i.imgur.com/CSR5345.jpeg","https://i.imgur.com/6GH8PIa.jpeg"]},
+      {label:"1F Seminar Room & Cafe", images:["https://i.imgur.com/slj0Hjd.jpeg","https://i.imgur.com/BmtzdRz.jpeg","https://i.imgur.com/wfVkh5n.jpeg"]},
+      {label:"2F Control Center", images:["https://i.imgur.com/90CHKdA.jpeg","https://i.imgur.com/XaH5AXj.jpeg"]},
+      {label:"2F Lounge & VIP Room", images:["https://i.imgur.com/NfV1t6V.jpeg","https://i.imgur.com/PYgTNvd.jpeg"]}
     ]
   },
   {
@@ -350,12 +269,10 @@ const personalProjects = [
   { name:"Coming Soon", cat:"Personal", thumb:"", spaces:[] },
 ];
 
-// ── render company panels ──
 const panelsEl = document.getElementById("panels");
 panelsEl.innerHTML = projects.map((p,i) => `
-  <div class="panel" onclick="openDetail(${i})"
-    style="${p.thumb ? `--bg:url('${p.thumb}')` : `--bg:none`}">
-    <div class="panel-bg" style="background-image:${p.thumb ? `url('${p.thumb}')` : 'none'}; background-color:${!p.thumb ? '#2a2a2a' : 'transparent'};"></div>
+  <div class="panel" onclick="openDetail(${i},'company')">
+    <div class="panel-bg" style="background-image:${p.thumb?`url('${p.thumb}')`:'none'}; background-color:${!p.thumb?'#2a2a2a':'transparent'};"></div>
     <div class="panel-content">
       <span class="panel-num">0${i+1}</span>
       <div class="panel-info">
@@ -368,12 +285,27 @@ panelsEl.innerHTML = projects.map((p,i) => `
   </div>
 `).join("");
 
-// ── full page scroll observer ──
+const personalEl = document.getElementById("personal-panels");
+personalEl.innerHTML = personalProjects.map((p,i) => `
+  <div class="panel" onclick="openDetail(${i},'personal')">
+    <div class="panel-bg" style="background-color:#dedad4;"></div>
+    <div class="panel-content">
+      <span class="panel-num">0${i+1}</span>
+      <div class="panel-info">
+        <div class="panel-title">${p.name}</div>
+        <div class="panel-cat">${p.cat}</div>
+      </div>
+      <span class="panel-arrow">→</span>
+    </div>
+    <div class="panel-divider"></div>
+  </div>
+`).join("");
+
 const sections = document.querySelectorAll(".fp-section");
 const dots = document.querySelectorAll(".dot");
 const nav = document.getElementById("nav");
 const dotsWrap = document.getElementById("dots");
-const darkSections = ["s-portfolio","s-contact"];
+const darkSections = ["s-portfolio","s-personal","s-contact"];
 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -389,19 +321,16 @@ const obs = new IntersectionObserver(entries => {
 },{threshold:0.5, root:document.getElementById("fp-container")});
 sections.forEach(s => obs.observe(s));
 
-function goSection(i) {
-  sections[i].scrollIntoView({behavior:"smooth"});
-}
+function goSection(i) { sections[i].scrollIntoView({behavior:"smooth"}); }
 
-// ── detail ──
 const detailPage = document.getElementById("detail-page");
 const detailBack = document.getElementById("detail-back");
 const dHeroImg = document.getElementById("d-hero-img");
 
-function openDetail(idx) {
-  const p = projects[idx];
+function openDetail(idx, type) {
+  const p = type==='personal' ? personalProjects[idx] : projects[idx];
   dHeroImg.src = p.thumb || "";
-  document.querySelector(".detail-hero-wrap").style.display = p.thumb ? "block" : "none";
+  document.getElementById("d-hero-wrap").style.display = p.thumb ? "block" : "none";
   document.getElementById("d-cat").textContent = p.cat;
   document.getElementById("d-title").textContent = p.name;
   document.getElementById("d-spaces").innerHTML = p.spaces.map(s => `
@@ -417,15 +346,12 @@ function openDetail(idx) {
   detailPage.onscroll = () => {
     const sy = detailPage.scrollTop;
     dHeroImg.style.transform = `scale(1.05) translateY(${sy*0.28}px)`;
-    detailBack.classList.toggle("dark", sy > window.innerHeight * 0.6);
+    detailBack.classList.toggle("dark", sy > window.innerHeight*0.6);
   };
 }
 
-function closeDetail() {
-  detailPage.classList.remove("open");
-}
+function closeDetail() { detailPage.classList.remove("open"); }
 
-// ── lightbox ──
 let lbImgs=[], lbIdx=0;
 function openLb(imgs,idx){ lbImgs=imgs; lbIdx=idx; document.getElementById("lb-img").src=imgs[idx]; document.getElementById("lightbox").classList.add("open"); }
 function closeLb(){ document.getElementById("lightbox").classList.remove("open"); }
